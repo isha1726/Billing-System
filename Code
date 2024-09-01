@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing Software</title>
+    <link rel="stylesheet" href="styles.css">
+<style>
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000000; /* Black background */
+    margin: 0;
+    padding: 0;
+    color: #ffffff; /* White text for contrast */
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #1a1a1a; /* Dark gray container for contrast */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: yellow;
+    margin-bottom: 20px;
+}
+
+/* Customer Details */
+.customer-details, .product-category, .bill-menu, .bill {
+    margin-bottom: 20px;
+}
+
+.customer-details h2, .product-category h2, .bill h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: yellowgreen;
+}
+
+.customer-details label, .product-category label {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    display: block;
+    color: #ffffff;
+}
+
+.customer-details input, .product-category input {
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #333333; /* Dark input background */
+    color: #ffffff; /* White text */
+}
+
+.product-categories {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.product-category {
+    width: 30%;
+    background-color: #2c2c2c; /* Slightly lighter gray */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.product-category label {
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.product-category input {
+    width: 100%;
+    padding: 6px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #333333;
+    color: #ffffff;
+}
+
+/* Bill Amount */
+.bill {
+    background-color: #2c2c2c;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.bill h2 {
+    font-size: 1.8rem;
+    color: yellowgreen;
+}
+
+#bill-area {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #333333;
+    color: #ffffff;
+    resize: none;
+}
+
+/* Bill Menu */
+.bill-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bill-menu label {
+    font-size: 1.2rem;
+}
+
+#total-bill {
+    font-size: 1.2rem;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 30%;
+    background-color: #333333;
+    color: black;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.buttons button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    background-color: yellow;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buttons button:hover {
+    background-color: yellow;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-category {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .bill-menu {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #total-bill {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .buttons {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+</style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Big Bazaar</h1>
+        </header>
+
+        <!-- Customer Details -->
+        <div class="customer-details">
+            <h2>Customer Details</h2>
+            <label for="cname">Customer Name:</label>
+            <input type="text" id="cname">
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone">
+
+        </div>
+
+        <!-- Product Categories -->
+        <div class="product-categories">
+            <!-- Water Bottles -->
+            <div class="product-category">
+                <h2>Water Sale</h2>
+                <label for="one">One Litre:20/-</label>
+                <input type="number" id="one" value="0">
+                <label for="half">Half Litre: 10/-</label>
+                <input type="number" id="half" value="0">
+                <label for="ml">250 ML:5/-</label>
+                <input type="number" id="ml" value="0">
+            </div>
+
+            <!-- Cool Drinks -->
+            <div class="product-category">
+                <h2>Cool Drinks</h2>
+                <label for="ts1">ThumsUp 250ml: 15/-</label>
+                <input type="number" id="ts1" value="0">
+                <label for="ts2">ThumsUp 750ml: 35/-</label>
+                <input type="number" id="ts2" value="0">
+                <label for="ts3">ThumsUp 2l: 70/-</label>
+                <input type="number" id="ts3" value="0">
+                <label for="s1">Sprite 250ml: 15/-</label>
+                <input type="number" id="s1" value="0">
+                <label for="s2">Sprite 750ml: 35/-</label>
+                <input type="number" id="s2" value="0">
+                <label for="s3">Sprite 2l: 70/-</label>
+                <input type="number" id="s3" value="0">
+            </div>
+
+            <!-- Mazza/Appy -->
+            <div class="product-category">
+                <h2>Lays / Chips</h2>
+                <label for="mazzate">Bingo: 10/-</label>
+                <input type="number" id="mazzate" value="0">
+                <label for="mazza250">Onion Chips:25/-</label>
+                <input type="number" id="mazza250" value="0">
+                <label for="mazza600">Kurkure(Big pack): 50/-</label>
+                <input type="number" id="mazza600" value="0">
+                <label for="appy250">Banana chips: 25/-</label>
+                <input type="number" id="appy250" value="0">
+                <label for="appy600">Green lays : 50/-</label>
+                <input type="number" id="appy600" value="0">
+            </div>
+        </div>
+
+        <!-- Bill Amount -->
+        <div class="bill">
+            <h2>Bill Amount</h2>
+            <textarea id="bill-area" readonly></textarea>
+        </div>
+
+        <!-- Bill Menu -->
+        <div class="bill-menu">
+            <label for="total-bill">Total Bill Amount:</label>
+            <input type="text" id="total-bill" readonly>
+            <div class="buttons">
+                <button onclick="calculateTotal()">Total</button>
+                <button onclick="generateBill()">Generate Bill</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+function calculateTotal() {
+    const one = parseInt(document.getElementById("one").value) || 0;
+    const half = parseInt(document.getElementById("half").value) || 0;
+    const ml = parseInt(document.getElementById("ml").value) || 0;
+    const ts1 = parseInt(document.getElementById("ts1").value) || 0;
+    const ts2 = parseInt(document.getElementById("ts2").value) || 0;
+    const ts3 = parseInt(document.getElementById("ts3").value) || 0;
+    const s1 = parseInt(document.getElementById("s1").value) || 0;
+    const s2 = parseInt(document.getElementById("s2").value) || 0;
+    const s3 = parseInt(document.getElementById("s3").value) || 0;
+    const mazzate = parseInt(document.getElementById("mazzate").value) || 0;
+    const mazza250 = parseInt(document.getElementById("mazza250").value) || 0;
+    const mazza600 = parseInt(document.getElementById("mazza600").value) || 0;
+    const appy250 = parseInt(document.getElementById("appy250").value) || 0;
+    const appy600 = parseInt(document.getElementById("appy600").value) || 0;
+
+    const total = (one * 20) + (half * 10) + (ml * 5) + 
+                  (ts1 * 15) + (ts2 * 35) + (ts3 * 70) + 
+                  (s1 * 15) + (s2 * 35) + (s3 * 70) + 
+                  (mazzate * 10) + (mazza250 * 25) + (mazza600 * 50) + 
+                  (appy250 * 25) + (appy600 * 50);
+
+    document.getElementById("total-bill").value = "₹" + total;
+}
+
+function generateBill() {
+    const billArea = document.getElementById("bill-area");
+    const customerName = document.getElementById("cname").value;
+    const phone = document.getElementById("phone").value;
+
+    const products = [
+        { name: "One Litre", quantity: parseInt(document.getElementById("one").value) || 0, price: 20 },
+        { name: "Half Litre", quantity: parseInt(document.getElementById("half").value) || 0, price: 10 },
+        { name: "250 ML", quantity: parseInt(document.getElementById("ml").value) || 0, price: 5 },
+        { name: "ThumsUp 250ml", quantity: parseInt(document.getElementById("ts1").value) || 0, price: 15 },
+        { name: "ThumsUp 750ml", quantity: parseInt(document.getElementById("ts2").value) || 0, price: 35 },
+        { name: "ThumsUp 2l", quantity: parseInt(document.getElementById("ts3").value) || 0, price: 70 },
+        { name: "Sprite 250ml", quantity: parseInt(document.getElementById("s1").value) || 0, price: 15 },
+        { name: "Sprite 750ml", quantity: parseInt(document.getElementById("s2").value) || 0, price: 35 },
+        { name: "Sprite 2l", quantity: parseInt(document.getElementById("s3").value) || 0, price: 70 },
+        { name: "Bingo", quantity: parseInt(document.getElementById("mazzate").value) || 0, price: 10 },
+        { name: "Onion Chips", quantity: parseInt(document.getElementById("mazza250").value) || 0, price: 25 },
+        { name: "Kurkure(Big pack)", quantity: parseInt(document.getElementById("mazza600").value) || 0, price: 50 },
+        { name: "Banana chips", quantity: parseInt(document.getElementById("appy250").value) || 0, price: 25 },
+        { name: "Green lays", quantity: parseInt(document.getElementById("appy600").value) || 0, price: 50 }
+    ];
+
+    let total = 0;
+    let billContent = "Big Bazaar";
+    billContent += "----------------------------\n";
+    billContent += "Customer Name: " + customerName + "\n";
+    billContent += "Phone Number: " + phone + "\n";
+    billContent += "----------------------------\n";
+    billContent += "Item\t\tQty\tPrice\n";
+    billContent += "----------------------------\n";
+
+    products.forEach(product => {
+        if (product.quantity > 0) {
+            const itemTotal = product.quantity * product.price;
+            billContent += `${product.name}\t\t${product.quantity}\t₹${itemTotal}\n`;
+            total += itemTotal;
+        }
+    });
+
+    billContent += "----------------------------\n";
+    billContent += "Total Bill Amount: ₹" + total + "\n";
+    billContent += "----------------------------\n";
+    billContent += "Thank you for your purchase!";
+
+    billArea.value = billContent;
+}
+</script>
+</body>
+
+</html>
